@@ -13,34 +13,44 @@ import Footer from './components/footer';
 import AddLead from "./pages/addLead";
 import UpdateLead from "./pages/updateLead";
 import DeleteLead from "./pages/deleteLead";
+import Login from "./pages/login";
+import SignOut from "./pages/signout";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/leads">
-            <Leads />
-          </Route>
-          <Route path="/addLead">
-            <AddLead />
-          </Route>
-          <Route path="/updateLead">
-            <UpdateLead />
-          </Route>
-          <Route path="/deleteLead">
-            <DeleteLead />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
-      <Footer />
+    <div className="container">
+      <div className="App">
+        <Router>
+          <NavBar />
+          <Switch>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/leads">
+              <Leads />
+            </Route>
+            <Route path="/addLead">
+              <AddLead />
+            </Route>
+            <Route path="/updateLead">
+              <UpdateLead />
+            </Route>
+            <Route path="/deleteLead">
+              <DeleteLead />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/signout">
+              <SignOut />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+        <Footer />
+      </div>
     </div>
   );
 }
