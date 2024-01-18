@@ -17,6 +17,11 @@ import Login from "./pages/login";
 import SignOut from "./pages/signout";
 
 function App() {
+  //const [token, setToken] = useState();
+  //if(!token) {
+    //return <Login setToken={setToken} />
+  //}
+
   return (
     <div className="container">
       <div className="App">

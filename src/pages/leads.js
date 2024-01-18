@@ -21,13 +21,22 @@ function Leads() {
     width: "300px"
   };
 
+  try 
+  {
+      useEffect(() => {
+          Axios.get(leadListUrl)
+          .then((res) => {    
+            setLeadList(res.data);
+          })
+          .catch((err) => {
+              alert("Error signing out. Not Status 200. Error: " + err + ".");
+          });
+      }, []);
+  }
+  catch (err) {
+      alert("Error signing out");
+  }    
 
-  useEffect(() => {
-    Axios.get(leadListUrl)
-      .then((res) => {
-        setLeadList(res.data);
-    });   
-  }, []);
 
     return (
 
