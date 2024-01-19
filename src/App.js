@@ -15,6 +15,8 @@ import UpdateLead from "./pages/updateLead";
 import DeleteLead from "./pages/deleteLead";
 import Login from "./pages/login";
 import SignOut from "./pages/signout";
+import AddUser from "./pages/addUser";
+import ResetPassword from "./pages/resetPassword";
 
 function App() {
   //const [token, setToken] = useState();
@@ -23,7 +25,6 @@ function App() {
   //}
 
   return (
-    <div className="container">
       <div className="App">
         <Router>
           <NavBar />
@@ -43,6 +44,12 @@ function App() {
             <Route path="/deleteLead">
               <DeleteLead />
             </Route>
+            <Route path="/addUser">
+              <AddUser />
+            </Route>
+            <Route path="/resetPassword">
+              <ResetPassword />
+            </Route>
             <Route path="/login">
               <Login />
             </Route>
@@ -56,7 +63,6 @@ function App() {
         </Router>
         <Footer />
       </div>
-    </div>
   );
 }
 

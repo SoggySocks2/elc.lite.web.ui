@@ -62,15 +62,15 @@ function DeleteLead() {
 		<div>
 			<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 mb-3 mb-lg-5">
-                        <div class="overflow-hidden card table-nowrap table-card">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Delete Lead</h5>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 mb-3 mb-lg-5">
+                        <div className="overflow-hidden card table-nowrap table-card">
+                            <div className="card-header d-flex justify-content-between align-items-center">
+                                <h5 className="mb-0">Delete Lead</h5>
                             </div>
-                            <div class="table-responsive">
-                                <table class="table mb-0">
+                            <div className="table-responsive">
+                                <table className="table mb-0">
                                     <tr><td>Id:</td><td><label>{Id}</label></td><td>Created:</td><td colSpan={2}><label>{Created}</label></td></tr>
                                     <tr>
                                         <td>Forenames:</td><td><input type="text" value={Forenames} onChange={(event) => setForenames(event.target.value)} /></td>
@@ -96,8 +96,8 @@ function DeleteLead() {
                                     </tr>
 
                                     <tr>
-                                        <td colSpan={3} className='text-start'><button type="button" class="btn btn-primary" onClick={cancelDeleteLead}>Cancel</button></td>
-                                        <td colSpan={3} className='text-end'><button type="button" class="btn btn-primary" onClick={deleteLead}>Delete</button></td>
+                                        <td colSpan={3} className='text-start'><button type="button" className="btn btn-primary" onClick={cancelDeleteLead}>Cancel</button></td>
+                                        <td colSpan={3} className='text-end'><button type="button" className="btn btn-primary" onClick={deleteLead}>Delete</button></td>
                                         </tr>
                                 </table>
                             </div>

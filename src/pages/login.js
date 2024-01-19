@@ -49,35 +49,35 @@ function Login() {
             <div>
             <h2>Log In</h2>
                 <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" value={Email} onChange={(event) => setEmail(event.target.value)} />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                <div asp-validation-summary="ModelOnly" className="text-danger" role="alert"></div>
+                <div className="form-floating mb-3">
+                    <input asp-for="Input.Email" className="form-control" autoComplete="username" aria-required="true" placeholder="name@example.com" value={Email} onChange={(event) => setEmail(event.target.value)} />
+                    <label asp-for="Input.Email" className="form-label">Email</label>
+                    <span asp-validation-for="Input.Email" className="text-danger"></span>
                 </div>
-                <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" value={Password} onChange={(event) => setPassword(event.target.value)} />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                <div className="form-floating mb-3">
+                    <input asp-for="Input.Password" className="form-control" autoComplete="current-password" aria-required="true" placeholder="password" value={Password} onChange={(event) => setPassword(event.target.value)} />
+                    <label asp-for="Input.Password" className="form-label">Password</label>
+                    <span asp-validation-for="Input.Password" className="text-danger"></span>
                 </div>
-                <div class="checkbox mb-3">
-                    <label class="form-label">
-                        <input class="form-check-input" checked={RememberMe} onChange={(event) => setRememberMe(event.target.value)} />   
+                <div className="checkbox mb-3">
+                    <label className="form-label">
+                        <input className="form-check-input" checked={RememberMe} onChange={(event) => setRememberMe(event.target.value)} />   
                         &nbsp;Remember Me                     
                     </label>
                 </div>
                 <div>
-                    <button id="login-submit" type="button" class="w-100 btn btn-lg btn-primary" onClick={login}>Log in</button>
+                    <button id="login-submit" type="button" className="w-100 btn btn-lg btn-primary" onClick={login}>Log in</button>
                 </div>
                 <div>
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a id="forgot-password">Forgot your password?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a asp-page="./Register">Register as a new user</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        <a id="resend-confirmation">Resend email confirmation</a>
                     </p>
                 </div>
             </div>

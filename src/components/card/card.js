@@ -13,7 +13,7 @@ class Card extends React.Component {
             <div className="card mb-3">
                 <div className="row g-0">
                     <div className={"col-md-4 order-sm-" + imgOrder}>
-                        <img src={this.props.imgSrc} class="img-fluid rounded-start" alt={this.props.imgAlt} />
+                        <img src={this.props.imgSrc} className="img-fluid rounded-start" alt={this.props.imgAlt} />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
