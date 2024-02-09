@@ -1,18 +1,19 @@
-import Axios from 'axios';
+import Axios from '../api/axios';
 import { useEffect } from "react";
 import { useHistory  } from "react-router-dom";
 
 function SignOut() {
     
-    const signoutUrl = "https://localhost:7299/api/auth/logout";
     const history = useHistory();
 
         try 
         {
             useEffect(() => {
-                Axios.post(signoutUrl)
+                Axios.post("/authentication/logout")
                 .then((res) => {                 
                     if(res.status === 200) {
+                        
+                        localStorage.setItem("token", null);
                         //redirect to home
                         history.push("/home");
                     }

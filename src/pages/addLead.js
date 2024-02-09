@@ -1,11 +1,10 @@
-import Axios from 'axios';
+
+import Axios from '../api/axios';
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AddLead()
 {
-    const addLeadUrl = "https://localhost:7299/api/Leads";
-    //const [Id, setId] = useState(0);
     const [Created, setCreated] = useState(null);
     const [Budget, setBudget] = useState(0.00);
     const [Forenames, setForenames] = useState("");
@@ -21,7 +20,7 @@ function AddLead()
     const [InterestedInModel, setInterestedInModel] = useState("");
 
     const saveLead = () => {
-        Axios.post(addLeadUrl, {
+        Axios.post("/Leads", {
             Budget: Budget,
             Forenames: Forenames,
             Surname: Surname,
@@ -36,20 +35,6 @@ function AddLead()
             InterestedInVehicleModel: InterestedInModel
         })
         .then((res) => {
-            //setId(res.data.id);
-            //setCreated(res.data.Created);
-            //setBudget(res.data.Budget);
-            //setForenames(res.data.Forenames);
-            //setSurname(res.data.Surname);
-            //setTelNo(res.data.TelNo);
-            //setPostcode(res.data.Postcode);
-            //setAddress(res.data.Address);
-            //setEmail(res.data.Email);            
-            //setCurrentMake(res.data.CurrentVehicleMake);
-            //setCurrentModel(res.data.CurrentVehicleModel);
-            //setCurrentYear(res.data.CurrentVehicleYear);
-            //setInterestedInMake(res.data.InterestedInVehicleMake);
-            //setInterestedInModel(res.data.InterestedInVehicleModel);
             window.location = "/Leads";
       }); 
     };

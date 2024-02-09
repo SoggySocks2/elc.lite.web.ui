@@ -1,9 +1,8 @@
-import Axios from 'axios';
+import Axios from '../api/axios';
 import React, { useState, useEffect } from 'react';
 
 function Leads() {
 
-  const leadListUrl = "https://localhost:7299/api/Leads";
   const [leadList, setLeadList] = useState(null);
 
   const leadDivStyle = {
@@ -23,19 +22,40 @@ function Leads() {
 
   try 
   {
-      useEffect(() => {
-          Axios.get(leadListUrl)
+    useEffect(() => {
+
+      const getOptions = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }
+      };
+      
+      Axios.get("/leads/list/44444", getOptions)
+        .then((res) => {    
+          setLeadList(res.data);
+        })
+        .catch((err) => {
+          alert("Error gettings leads. Not Status 200. Error: " + err + ".");
+        });
+    }, []);
+
+    /*
+      useEffect2(() => {
+          Axios.get("/leads/list/44444")          .
           .then((res) => {    
             setLeadList(res.data);
           })
           .catch((err) => {
-              alert("Error signing out. Not Status 200. Error: " + err + ".");
+              alert("Error gettings leads. Not Status 200. Error: " + err + ".");
           });
       }, []);
+    */ 
   }
   catch (err) {
-      alert("Error signing out");
-  }    
+      alert("Error getting leads");
+  }   
 
 
     return (

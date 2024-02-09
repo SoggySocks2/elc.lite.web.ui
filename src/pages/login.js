@@ -1,23 +1,21 @@
 import { useState } from "react";
-import Axios from 'axios';
 import { useHistory  } from "react-router-dom";
+import Axios from '../api/axios';
 
 function Login() {
 
     const history = useHistory();
-    const loginUrl = "https://localhost:7299/api/auth";
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
     const [RememberMe, setRememberMe] = useState(false);
 
-    const login = () => {
+    const login = async () => {
         
         try 
         {
-            Axios
-                .post(loginUrl, {
+                await Axios.post('/authentication', {
                     Headers: {
-                        'Content-Type': 'application/json',
+                        contentType: 'application/json',
                         accept: 'application/json'
                     },
                     Email: Email,
@@ -25,8 +23,10 @@ function Login() {
                     RememberMe: RememberMe
                 })
                 .then((res) => {    
-                    alert(res["data"]["token"]);            
                     if(res.status === 200) {
+                        
+                        localStorage.setItem("token", res.data.token);
+
                         //redirect to home
                         history.push("/home");
                     }
@@ -71,13 +71,13 @@ function Login() {
                 </div>
                 <div>
                     <p>
-                        <a id="forgot-password">Forgot your password?</a>
+                        <a href="/">Forgot your password?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register">Register as a new user</a>
+                        <a href="/">Register as a new user</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation">Resend email confirmation</a>
+                        <a href="/">Resend email confirmation</a>
                     </p>
                 </div>
             </div>

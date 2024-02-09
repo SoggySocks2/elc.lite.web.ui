@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import Axios from '../api/axios';
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -6,8 +6,8 @@ function DeleteLead() {
     const url = window.location.pathname;
     const id = url.split("/").pop();
 
-    const deleteLeadUrl = "https://localhost:7299/api/Leads/" + id;
-    const getLeadUrl = "https://localhost:7299/api/Leads/" + id;;
+    //const deleteLeadUrl = "https://localhost:7299/api/Leads/" + id;
+    //const getLeadUrl = "https://localhost:7299/api/Leads/" + id;
     const [Id, setId] = useState(0);
     const [Created, setCreated] = useState(null);
     const [Budget, setBudget] = useState(0.00);
@@ -24,7 +24,7 @@ function DeleteLead() {
     const [InterestedInModel, setInterestedInModel] = useState("");    
 
     useEffect(() => {
-        Axios.get(getLeadUrl)
+        Axios.get("/Leads/" + id)
           .then((res) => {
             setId(res.data.id);
             setCreated(res.data.created);
@@ -45,7 +45,7 @@ function DeleteLead() {
 
 
     const deleteLead = () => {
-        Axios.delete(deleteLeadUrl, {
+        Axios.delete("/Leads/" + id, {
             Id: Id
         })
         .then((res) => {

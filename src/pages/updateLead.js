@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import Axios from '../api/axios';
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,8 +7,6 @@ function UpdateLead() {
     const url = window.location.pathname;
     const id = url.split("/").pop();
 
-    const getLeadUrl = "https://localhost:7299/api/Leads/" + id;
-    const addLeadUrl = "https://localhost:7299/api/Leads";
     const [Id, setId] = useState(0);
     const [Created, setCreated] = useState(null);
     const [Budget, setBudget] = useState(0.00);
@@ -25,7 +23,7 @@ function UpdateLead() {
     const [InterestedInModel, setInterestedInModel] = useState("");    
 
     useEffect(() => {
-        Axios.get(getLeadUrl)
+        Axios.get("/Leads/" + id)
           .then((res) => {
             setId(res.data.id);
             setCreated(res.data.created);
@@ -46,7 +44,7 @@ function UpdateLead() {
 
 
     const updateLead = () => {
-        Axios.put(addLeadUrl, {
+        Axios.put("/Leads", {
             Id: Id,
             Budget: Budget,
             Forenames: Forenames,
