@@ -66,12 +66,27 @@ function Leads() {
           <div>
               {leadList ? 
                 <ul>
+                  <b>
+                    <div key={0} style={leadDivStyle}>
+                        <div style={leadShortDivStyle}>Id</div>
+                        <div style={leadMediumDivStyle}>Kanji Fore Name</div>
+                        <div style={leadMediumDivStyle}>Kanji Surname</div>
+                        <div style={leadLargeDivStyle}>Address</div>
+                        <div style={leadShortDivStyle}>Postcode</div>                        
+                        <div style={leadShortDivStyle}>
+                          &nbsp;
+                        </div>                     
+                        <div style={leadShortDivStyle}>
+                          &nbsp;
+                        </div>
+                    </div>
+                  </b>
                   {
                     (leadList).map((lead) => {
                       return <div key={lead.id} style={leadDivStyle}>
                         <div style={leadShortDivStyle}>{lead.id}</div>
-                        <div style={leadMediumDivStyle}>{lead.forenames}</div>
-                        <div style={leadMediumDivStyle}>{lead.surname}</div>
+                        <div style={leadMediumDivStyle}>{lead.kanjiForeName}</div>
+                        <div style={leadMediumDivStyle}>{lead.kanjiSurname}</div>
                         <div style={leadLargeDivStyle}>{lead.address}</div>
                         <div style={leadShortDivStyle}>{lead.postcode}</div>                        
                         <div style={leadShortDivStyle}>
